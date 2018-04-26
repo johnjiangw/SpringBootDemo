@@ -1,0 +1,26 @@
+2018-04-26 10:31:53,590 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 7200 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 10:31:53,602 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 10:32:00,247 INFO (StartupInfoLogger.java:59)- Started SpringDemoApplication in 10.094 seconds (JVM running for 16.207)
+2018-04-26 14:25:33,214 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 6832 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 14:25:33,214 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 14:29:05,452 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 5288 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 14:29:05,452 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 14:30:00,416 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 5328 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 14:30:00,417 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 14:30:04,712 INFO (StartupInfoLogger.java:59)- Started SpringDemoApplication in 4.975 seconds (JVM running for 5.608)
+2018-04-26 14:35:12,697 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 5856 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 14:35:12,697 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 14:35:16,100 INFO (StartupInfoLogger.java:59)- Started SpringDemoApplication in 4.108 seconds (JVM running for 4.726)
+2018-04-26 14:36:48,555 ERROR (UserController.java:62)- Invalid bound statement (not found): com.john.springdemo.dao.UserMapper.selectByPrimaryKey
+2018-04-26 14:38:23,817 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 7136 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 14:38:23,817 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 14:38:27,181 INFO (StartupInfoLogger.java:59)- Started SpringDemoApplication in 4.004 seconds (JVM running for 4.709)
+2018-04-26 14:38:43,204 ERROR (UserController.java:62)- Invalid bound statement (not found): com.john.springdemo.dao.UserMapper.selectByPrimaryKey
+2018-04-26 14:53:06,832 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 8796 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 14:53:06,833 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 14:53:10,740 INFO (StartupInfoLogger.java:59)- Started SpringDemoApplication in 4.621 seconds (JVM running for 5.314)
+2018-04-26 14:53:22,367 ERROR (UserController.java:62)- Invalid bound statement (not found): com.john.springdemo.dao.UserMapper.selectByPrimaryKey
+2018-04-26 15:01:13,028 INFO (StartupInfoLogger.java:50)- Starting SpringDemoApplication on jiangwei-PC with PID 9128 (started by jiangwei in E:\My Document\IdeaProjects\SpringBootDemo)
+2018-04-26 15:01:13,045 INFO (SpringApplication.java:663)- The following profiles are active: dev
+2018-04-26 15:01:16,461 INFO (StartupInfoLogger.java:59)- Started SpringDemoApplication in 3.951 seconds (JVM running for 5.135)
+2018-04-26 15:01:29,470 ERROR (UserController.java:62)- Invalid bound statement (not found): com.john.springdemo.dao.UserMapper.selectByPrimaryKey

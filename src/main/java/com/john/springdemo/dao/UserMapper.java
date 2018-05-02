@@ -20,4 +20,5 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
     int selectDataCount();
     List<User> selectDataPage(int rowIndex,int count)throws Exception;
+    List<User>selectAll();
 }

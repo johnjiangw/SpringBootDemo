@@ -1,6 +1,8 @@
 package com.john.springdemo.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.john.springdemo.common.utils.ReflectUtil;
 import com.john.springdemo.dao.UserMapper;
 import com.john.springdemo.model.dto.User;
 import com.john.springdemo.model.vo.UserVO;
@@ -8,8 +10,8 @@ import com.john.springdemo.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service("UserService")
@@ -21,17 +23,7 @@ public class UserServiceImpl implements IUserService {
         List<UserVO> listVO=new ArrayList<>();
         for (User u:list ) {
             UserVO vo=new UserVO();
-            Class<?>clazz=u.getClass();
-            Class<?>clazzVO=vo.getClass();
-            for (Field f:clazz.getDeclaredFields()) {
-                String fName=f.getName();
-                if(fName!="pwd") {
-                    f.setAccessible(true);
-                    Field fVO = clazzVO.getDeclaredField(fName);
-                    fVO.setAccessible(true);
-                    fVO.set(vo, f.get(u));
-                }
-            }
+            vo=ReflectUtil.copyValue(u,vo,new String[]{"pwd"});
             listVO.add(vo);
         }
         return listVO;
@@ -52,9 +44,21 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public PageInfo<UserVO> findAllByPage(int pageIndex,int pageSize) {
-        //PageInfo<UserVO> pageInfo=new PageInfo<>(pageIndex,pageSize);
-        //List<User>list=mapper.selectDataPage()
-        return null;
+    public PageInfo<UserVO> findAllByPage(int pageIndex,int pageSize) throws Exception {
+        //分页调用方式1
+        PageHelper.startPage(1,1);
+        //PageHelper.count()
+        List<User>list=mapper.selectAll();
+        List<UserVO>listVO=object2VO(list);
+        PageInfo<UserVO>pageInfo=new PageInfo<>(listVO,1);
+        return pageInfo;
+    }
+    @Override
+    public int addUser(UserVO userVO)throws Exception{
+        User u=new User();
+        u=ReflectUtil.copyValue(userVO,u);
+        u.setPwd("123456");
+        u.setLastUpdate(new Date());
+        return mapper.insertSelective(u);
     }
 }

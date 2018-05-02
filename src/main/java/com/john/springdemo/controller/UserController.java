@@ -1,7 +1,10 @@
 package com.john.springdemo.controller;
 
 
+import com.github.pagehelper.PageInfo;
 import com.john.springdemo.common.constant.ResponseCode;
+import com.john.springdemo.common.utils.ReflectUtil;
+import com.john.springdemo.model.dto.User;
 import com.john.springdemo.model.vo.ResponseVO;
 import com.john.springdemo.model.vo.UserVO;
 
@@ -59,15 +62,41 @@ public class UserController {
         }
         return response;
     }
+    @RequestMapping(value = "/page/{pageIndex}",method = RequestMethod.GET)
+    public ResponseVO<PageInfo<UserVO>>queryUserByPage(@PathVariable String pageIndex){
+        if(StringUtils.isEmpty(pageIndex))
+            pageIndex="1";
+        int _pageIndex=Integer.parseInt(pageIndex);
+        ResponseVO<PageInfo<UserVO>>responseVO=new ResponseVO<>();
+        try {
+            PageInfo<UserVO>pageInfo=userService.findAllByPage(_pageIndex,10);
+            responseVO.setCode(ResponseCode.SUCCESS);
+            responseVO.setData(pageInfo);
+        }
+        catch (Exception e){
+            responseVO.setCode(ResponseCode.ERROR);
+            responseVO.setMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return responseVO;
+    }
 
 
     @RequestMapping(value = "/userInfo",method = RequestMethod.POST)
     public ResponseVO addUser(@RequestBody UserVO userInfo){
 
         ResponseVO response=new ResponseVO();
+        try {
+            userService.addUser(userInfo);
+            response.setCode(ResponseCode.SUCCESS);
+            response.setMsg("成功");
 
-        //response.setMsg("成功"+userInfo.getUsername());
-
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.error(e.getMessage());
+            response.setCode(ResponseCode.ERROR);
+            response.setMsg(e.getMessage());
+        }
         return  response;
     }
 
